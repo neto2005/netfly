@@ -2,15 +2,10 @@
 
 Práctica de **Prototipado Rápido** — Carrito de compras con autenticación simulada usando `localStorage`.
 
-## 🔗 Links
-
-- **GitHub:** `[pega tu link aquí]`
-- **Netlify:** `[pega tu link aquí]`
-
 ## ✨ Características
 
 - **Autenticación simulada** con `localStorage` (registro + login + sesión persistente)
-- Usuario demo: `usuario@demo.com` / contraseña: `1234`
+- Usuario net: `usuario@net.com` / contraseña: `1234`
 - **Carrito de compras** por usuario (cada cuenta tiene su propio carrito)
 - Agregar, quitar productos y modificar cantidades
 - Filtro de productos por categoría
