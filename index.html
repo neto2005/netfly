@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MODA — Tienda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- AUTH MODAL -->
+<div id="auth-overlay" class="auth-overlay">
+  <div class="auth-box">
+    <div class="auth-logo">MODA</div>
+    <div class="auth-tabs">
+      <button class="tab-btn active" onclick="switchTab('login')">Iniciar Sesión</button>
+      <button class="tab-btn" onclick="switchTab('register')">Registrarse</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="login-form" class="auth-form">
+      <input type="email" id="login-email" placeholder="Correo electrónico" />
+      <input type="password" id="login-pass" placeholder="Contraseña" />
+      <p id="login-error" class="auth-error"></p>
+      <button class="btn-auth" onclick="login()">Entrar</button>
+      <p class="demo-hint">net: <strong>usuario@net.com</strong> / <strong>1234</strong></p>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="register-form" class="auth-form hidden">
+      <input type="text" id="reg-name" placeholder="Nombre completo" />
+      <input type="email" id="reg-email" placeholder="Correo electrónico" />
+      <input type="password" id="reg-pass" placeholder="Contraseña" />
+      <p id="reg-error" class="auth-error"></p>
+      <button class="btn-auth" onclick="register()">Crear cuenta</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">MODA</div>
+    <div class="nav-right">
+      <span id="nav-user" class="nav-user"></span>
+      <button class="cart-btn" onclick="toggleCart()">
+        <span class="cart-icon">🛍</span>
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button class="logout-btn" onclick="logout()">Salir</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-sub">Nueva Colección 2025</p>
+      <h1 class="hero-title">Estilo que<br/><em>te define</em></h1>
+      <a href="#products" class="hero-cta">Ver colección ↓</a>
+    </div>
+    <div class="hero-shapes">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
+    <h2 class="section-title">Productos</h2>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
+      <button class="filter-btn" onclick="filterProducts('ropa', this)">Ropa</button>
+      <button class="filter-btn" onclick="filterProducts('accesorios', this)">Accesorios</button>
+      <button class="filter-btn" onclick="filterProducts('calzado', this)">Calzado</button>
+    </div>
+    <div class="products-grid" id="products-grid"></div>
+  </section>
+
+  <!-- CART SIDEBAR -->
+  <div id="cart-overlay-bg" class="cart-bg hidden" onclick="toggleCart()"></div>
+  <aside id="cart-sidebar" class="cart-sidebar hidden">
+    <div class="cart-header">
+      <h3>Tu Carrito</h3>
+      <button onclick="toggleCart()" class="close-cart">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        Total: <span id="cart-total">$0.00</span>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">Finalizar Compra</button>
+      <button class="btn-clear" onclick="clearCart()">Vaciar carrito</button>
+    </div>
+  </aside>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast hidden"></div>
+
+  <footer class="footer">
+    <p></p>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
